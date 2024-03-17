@@ -28,7 +28,7 @@ dataset["income"] = dataset["income"].apply(lambda x: 1 if x == ">50l" else 0)
 # sb.heatmap(dataset.corr(),annot=False,cmap="coolwarm")
 # plt.show()
 # sb._show_cmap()
-
+print("finished reading the data")
 correlations = dataset.corr()["income"].abs()
 sorted_correlations = correlations.sort_values()
 nums_of_colons_to_drop = int(0.8 * len(dataset.columns))
@@ -36,9 +36,9 @@ colns_to_drop = sorted_correlations.iloc[ :nums_of_colons_to_drop].index
 dataset = dataset.drop(colns_to_drop,axis=1)
 
 #training the ai model
-dataset = dataset.drop("fnlwgt", axis=1)
+# dataset = dataset.drop("fnlwgt", axis=1)
 train_dataset, test_dataset = train_test_split(dataset, test_size=0.2)
-
+print("finished splitting the dataset...")
 train_X = train_dataset.drop("income", axis=1)
 train_Y = train_dataset["income"]
 
@@ -46,6 +46,7 @@ test_X = test_dataset.drop("income", axis=1)
 test_Y = test_dataset["income"]
 
 #our model has been trained and now we are fitting it and testing it with our slitted test data
+print("random forest started....")
 forest = RandomForestClassifier()
 forest.fit(train_X, train_Y)
 result = forest.score(test_X, test_Y)
