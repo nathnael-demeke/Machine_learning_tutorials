@@ -55,3 +55,5 @@ print("line 51: this is the test result " + str(result))
 importances = dict(zip(forest.feature_names_in_,forest.feature_importances_))
 importances = {k:v for k,v in sorted(importances.items(),key=lambda x: x[1], reverse=True)}
 
+print(importances)
+
