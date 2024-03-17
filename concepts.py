@@ -56,4 +56,16 @@ importances = dict(zip(forest.feature_names_in_,forest.feature_importances_))
 importances = {k:v for k,v in sorted(importances.items(),key=lambda x: x[1], reverse=True)}
 
 print(importances)
+parma_grid = {
+    "n_estimators": [50,100,250],
+    "max_depth": [5,30,null],
+    "min_samples_split": [2,4],
+    "max_features": ['sqrt', 'log2']
 
+}
+
+grid_search = GridSearchCV(estimator=RandomForestClassifier(), param_grid=parma_grid, verbose=10)
+
+grid_search.fit(train_X, train_Y)
+forest = grid_search.best_estimator_
+print("this is the result of the grid search best estimator " + forest.score(test_X, test_Y))
