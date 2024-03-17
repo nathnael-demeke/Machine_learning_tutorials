@@ -69,3 +69,4 @@ grid_search = GridSearchCV(estimator=RandomForestClassifier(), param_grid=parma_
 grid_search.fit(train_X, train_Y)
 forest = grid_search.best_estimator_
 print("this is the result of the grid search best estimator " + forest.score(test_X, test_Y))
+
