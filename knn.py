@@ -5,6 +5,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from  sklearn.neighbors import KNeighborsClassifier
 
+#KNN is used for clustering and various recommendation algoritsms use this machine learning strand 
+
 
 iris_dataset = pd.read_csv("csv\\iris.data.csv")
 X = iris_dataset.drop("class", axis=1)
