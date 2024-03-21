@@ -6,7 +6,7 @@ from sklearn.ensemble import RandomForestClassifier
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import GridSearchCV
 
-dataset = pd.read_csv("adult.csv")
+dataset = pd.read_csv(r"csv\\adult.csv")
 #one hot encoding
 dataset.education.value_counts()
 #getting the dummies

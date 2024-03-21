@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pickle
 
-dataset = pd.read_csv('housing.csv')
+dataset = pd.read_csv(r'csv\\housing.csv')
 
 dataset.dropna(inplace=True)
 # print(dataset.info())
